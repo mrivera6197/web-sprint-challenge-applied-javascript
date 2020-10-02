@@ -12,14 +12,11 @@
 
 
 const tabContainer = document.querySelector('.topics')
-// console.log(tabContainer)
 
 import axios from 'axios'
-// console.log(axios)
 
 axios.get('https://lambda-times-api.herokuapp.com/topics')
     .then(res => {
-        // console.log(res)
         let tabArray = Array.from(res.data.topics)
         
         tabArray.forEach(topic => {

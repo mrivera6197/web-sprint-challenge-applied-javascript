@@ -22,7 +22,6 @@
 // Use your function to create a card for each of the articles, and append each card to the DOM.
 
 const cardsContainer = document.querySelector('.cards-container')
-console.log(cardsContainer)
 
 axios.get('https://lambda-times-api.herokuapp.com/articles')
     .then(res => {
@@ -33,7 +32,6 @@ axios.get('https://lambda-times-api.herokuapp.com/articles')
             article.forEach(item => {
                    const articleData = (articleCard(item))
                    cardsContainer.append(articleData)
-                
                 })
             })
         })
@@ -46,7 +44,7 @@ function articleCard (item) {
     //elements
 
     let card = document.createElement('div')
-    let headline1 = document.createElement('div')
+    let headline = document.createElement('div')
     let author = document.createElement('div')
     let imgContainer = document.createElement('div')
     let img = document.createElement('img')
@@ -54,8 +52,8 @@ function articleCard (item) {
 
     //append elements 
 
-    card.appendChild(headline1)
-    headline1.appendChild(author)
+    card.appendChild(headline)
+    card.appendChild(author)
     author.appendChild(imgContainer)
     imgContainer.appendChild(img)
     author.appendChild(writtenBY)
@@ -63,7 +61,7 @@ function articleCard (item) {
     //class names 
 
     card.classList.add('card')
-    headline1.classList.add('headline')
+    headline.classList.add('headline')
     author.classList.add('author')
     imgContainer.classList.add('img-container')
 
@@ -71,7 +69,7 @@ function articleCard (item) {
 
     img.src = item.authorPhoto
     writtenBY.textContent = item.authorName
-    // headline1.textContent = item.headline
+    headline.textContent = item.headline
 
     //interactivity 
     card.addEventListener('click', () => {
