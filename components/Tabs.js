@@ -12,10 +12,10 @@
 
 
 const tabContainer = document.querySelector('.topics')
-console.log(tabContainer)
+// console.log(tabContainer)
 
 import axios from 'axios'
-console.log(axios)
+// console.log(axios)
 
 axios.get('https://lambda-times-api.herokuapp.com/topics')
     .then(res => {
